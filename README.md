@@ -1,4 +1,4 @@
-# badapp
+# FootworkTracker
 
 A new Flutter project.
 
