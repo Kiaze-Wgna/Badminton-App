@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'Create Account',
+                  'FootworkTracker',
                   style: GoogleFonts.poppins(
                     fontSize: 32,
                     fontWeight: FontWeight.w700,
@@ -33,17 +33,6 @@ class SignUpScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
-                TextField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: 'Full Name',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
                 TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -74,16 +63,16 @@ class SignUpScreen extends StatelessWidget {
                     foregroundColor: const Color(0xFFC60613),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  child: Text('Sign Up', style: GoogleFonts.poppins(fontSize: 18)),
+                  child: Text('Login', style: GoogleFonts.poppins(fontSize: 18)),
                 ),
                 const SizedBox(height: 20),
                 TextButton(
                   onPressed: () {
-                    // Navigate to login page
-                    context.go('/login');
+                    // Navigate to sign up page
+                    context.go('/signup');
                   },
                   child: Text(
-                    'Already have an account? Login',
+                    'Don\'t have an account? Sign Up',
                     style: GoogleFonts.poppins(color: Colors.white),
                   ),
                 ),

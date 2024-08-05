@@ -1,20 +1,35 @@
-// replace practice button icon with badminton icon instead of tennis
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 
-// replaced red constant
 const Color regularRed = Color(0xFFC60613);
 const Color lightRed = Color(0xFFFF0819);
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  void _onItemTapped(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        context.go('/');
+        break;
+      case 1:
+        context.go('/practice');
+        break;
+      case 2:
+        context.go('/compete');
+        break;
+      case 3:
+        context.go('/account');
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56.0),
+        preferredSize: const Size.fromHeight(56.0),
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -26,8 +41,7 @@ class HomeScreen extends StatelessWidget {
           child: AppBar(
             backgroundColor: Colors.transparent, // Set to transparent to show gradient
             elevation: 0, // Remove shadow
-            title: Text('FootworkTracker', style: GoogleFonts.poppins(color: Colors.white, fontSize: 24,
-                fontWeight: FontWeight.w500)),
+            title: Text('FootworkTracker', style: GoogleFonts.poppins(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500)),
           ),
         ),
       ),
@@ -88,12 +102,15 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         backgroundColor: const Color(0xFF232222), // Solid gray color
         selectedItemColor: lightRed,
         unselectedItemColor: Colors.white,
+        onTap: (index) => _onItemTapped(context, index),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.sports_tennis), label: 'Practice'),
+          BottomNavigationBarItem(icon: Icon(Icons.sports), label: 'Practice'),
+          BottomNavigationBarItem(icon: Icon(Icons.sports_soccer), label: 'Compete'), // Updated icon
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
         ],
       ),
